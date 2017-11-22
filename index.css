@@ -6,9 +6,14 @@ body, table, div, p {font-family:'Jeju GT';}
 .banner{
     margin: 0 0 0 0;
     padding: 0 0 0 0;
-    height: 200px;
+    height: 100px;
     background-image: url("image/song_letter_banner.png");
     border: beige solid 1px;
+    color: white;
+    text-align: center;
+    line-height: 100px;
+    font-size: 30px;
+    font-family: 'Jeju MJ';
 }
 
 #topMenu{
@@ -113,17 +118,32 @@ body, table, div, p {font-family:'Jeju GT';}
 
 #side{
     width: 230px;
+    position: fixed;
 }
 
 #side ul{
     padding: 0 0 0 0;
+    margin: 0 0 0 0;
 }
 
 #side ul li{
     list-style: none;
     margin: 0 0 0 0;
-    line-height: 80px;
+    padding-left: 15px;
+    line-height: 60px;
     text-align: center;
+    background-color: #5a8e79;
+    color: #f0f5f3;
+    font-size: 24px;
+    text-align-last: left;
+}
+
+#side ul li:first-child{
+    padding-left: 0px;
+    line-height: 80px;
+    background-color: #254438;
+    font-size: 36px;
+    text-align-last: center;
 }
 
 .contents{
@@ -131,13 +151,16 @@ body, table, div, p {font-family:'Jeju GT';}
     margin-right: auto;
     margin-left: auto;
     padding: 20px 20px 20px 20px;
+    height: auto;
+    background-color: #f0f5f3;
     
 }
 
 .title{
-    font-size: 30px;
+    font-size: 40px;
 }
 
 .article{
-    font-size: 20px;
+    font-size: 24px;
+    line-height: 1.5;
 }

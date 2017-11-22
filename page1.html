@@ -8,7 +8,7 @@
 	<body style="margin: 0 0 0 0">
         <div id="wrapper">
             <header>
-                <div class="banner"></div>
+                <div class="banner">우암 송시열</div>
                 <nav id = "topMenu">
                     <ul>
                         <li><a href="#">대문</a></li>
@@ -24,22 +24,51 @@
                     <li>우암의 소개</li>
                     <li>우암의 생애</li>
                     <li>우암의 정치</li>
+                    <li>우암의 사상</li>
                     <li>우암의 문학</li>
                 </ul>
             </div>
             <div class="contents">
-                <div class="title">
-                    우
-                </div>
+                <div class="title"></div>
                 <hr>
-                <p class="article">
-                    Hello this is for test
-                </p>
+                <p class="article"></p>
             </div>
         </div>
         <footer id = "bottom">
             <p>© 2017 All Rights Reserved.
             </p>
         </footer>
+        <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js"></script>
+        <script type="text/javascript">
+            //Idle process
+            $('.contents').css('height', 'auto');
+            if($('.contents').height() < 700){
+                $('.contents').css('height', '700');
+            }
+            $('#side').css('left', (($(window).width()-$('.contents').innerWidth())/2) - $('#side').width());
+            //end idle
+            $(window).resize(function(){
+                $('.contents').css('height', 'auto');
+                if($('.contents').height() < 700){
+                    $('.contents').css('height', '700');
+                }
+                $('#side').css('left', (($(window).width()-$('.contents').innerWidth())/2) - $('#side').width());
+            })
+            $.getJSON("json/page1/1.json", function(json) {
+                console.log(json); // access the response object
+                $('.title').text(json.title);
+                $('.article').text(json.article);
+            });
+            $('#side li:not(:first-child)').hover(
+                function(){
+                    $(this).css('background-color', '#f0f5f3');
+                    $(this).css('color', '#254438');
+                }
+                , function(){
+                    $(this).css('background-color', '#5a8e79');
+                    $(this).css('color', '#f0f5f3');
+                }
+            );
+        </script>
 	</body>
 </html>
