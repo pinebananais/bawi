@@ -1,3 +1,7 @@
+@font-face{font-family:'Jeju MJ'; src:url('/font/JejuMyeongjo.ttf')}
+@font-face{font-family:'Jeju GT'; src:url('/font/JejuGothic.ttf')}
+ 
+body, table, div, p {font-family:'Jeju GT';}
 
 .banner{
     margin: 0 0 0 0;
@@ -8,11 +12,12 @@
 }
 
 #topMenu{
-    width: 1608px;
+    width: 870px;
     margin-top: 0px;
     margin-right: auto;
     margin-left: auto;
     padding: 20px 0px 20px 0px;
+    height: auto;
 }
 
 #topMenu ul{
@@ -21,24 +26,23 @@
     margin-bottom: 0px;
     margin-right: auto;
     margin-left: auto;
-    overflow: auto;
+    height: 24px;
 }
 
 #topMenu ul li{
+    margin: 0 0 0 0;
     list-style: none;
     color: black;
     background-color: white;
-    line-height: 60px;
-    font-size: 28pt;
+    font-size: 18px;
     float: left;
     border-left: black 1px solid;
-    border-right: black 1px solid;
 }
 
 #topMenu ul li a{
     text-decoration: none;
     display: block;
-    width: 400px;
+    width: 215px;
     vertical-align: middle;
     text-align: center;
 }
@@ -56,7 +60,7 @@
 .container{
     position: absolute;
     bottom: 0px;
-    height: 50%;
+    height: 70%;
     border: red 1px;
     background-color: #c1e2d4;
     opacity: 0.95;
@@ -94,13 +98,46 @@
 }
 
 .button{
-    margin-left: 20ox;
+    margin-left: 20px;
     margin-right: 20px;
     background-color: #5a8e79;
     color: white;
     text-align: center;
-    width: 600px;
-    line-height: 150px;
-    font-size: 40pt;
+    width: 485px;
+    line-height: 100px;
+    font-size: 30px;
     display: inline-block;
+}
+
+/* page 1 */
+
+#side{
+    width: 230px;
+}
+
+#side ul{
+    padding: 0 0 0 0;
+}
+
+#side ul li{
+    list-style: none;
+    margin: 0 0 0 0;
+    line-height: 80px;
+    text-align: center;
+}
+
+.contents{
+    width: 1000px;
+    margin-right: auto;
+    margin-left: auto;
+    padding: 20px 20px 20px 20px;
+    
+}
+
+.title{
+    font-size: 30px;
+}
+
+.article{
+    font-size: 20px;
 }
