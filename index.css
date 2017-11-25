@@ -164,3 +164,13 @@ body, table, div, p {font-family:'Jeju GT';}
     font-size: 24px;
     line-height: 1.5;
 }
+
+/* page 2 */
+
+#imgbox{
+    position: relative;
+}
+
+#imgbox img{
+    position: absolute;
+}
