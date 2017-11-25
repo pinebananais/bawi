@@ -169,8 +169,24 @@ body, table, div, p {font-family:'Jeju GT';}
 
 #imgbox{
     position: relative;
+    float: left;
+    width: 50%;
 }
 
 #imgbox img{
     position: absolute;
+}
+
+#detail{
+    float: right;
+    width: 50%;
+}
+
+#detail img{
+    margin-top: 100px;
+    width: 100%;
+}
+
+#list{
+    float: none;
 }

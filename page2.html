@@ -18,9 +18,13 @@
                     </ul>
                 </nav>
             </header>
-            <div class="contents">
-                <div id="imgbox" style="height:1000px;">
+            <div class="contents" style="overflow:auto;">
+                <div id="imgbox" style="height:700px;">
+                </div>
+                <div id="detail" style="height:700px;">
                 
+                </div>
+                <div id="list">
                 </div>
             </div>
         </div>
@@ -28,6 +32,7 @@
     <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js"></script>
     <script type="text/javascript">
         var json1,json2;
+        var img_num = 0;
         $.getJSON("json/page2/2.json", function(json) {
             console.log(json); // access the response object
             json1 = json;
@@ -39,6 +44,7 @@
                 json2 = json;
                 console.log(json1);
                 put_img();
+                put_detail();
             });
         }
         
@@ -46,13 +52,21 @@
         function put_img(){
             for(var i = 0; i < 17; i++){
                 var img = document.createElement('img');
-                var leftval = 400;
-                var topval = 300;
+                var leftval = 300;
+                var topval = 250;
                 img.src = "/image/map/" + json1[i] + ".png";
                 console.log("left:"+(json2[i][0]*1 - leftval)+"px;top:"+json2[i][1]+"px;");
                 img.style = "left:"+(json2[i][0]*1 - leftval)+"px;top:"+(json2[i][1]*1 - topval)+"px;";
                 document.getElementById("imgbox").appendChild(img);
             }
         }
+        
+        function put_detail(){
+            var img = document.createElement('img');
+            img.src = "/image/map/" + json1[img_num] + ".png";
+            document.getElementById("detail").appendChild(img);
+        }
+        
+        
     </script>
 </html>
