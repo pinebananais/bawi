@@ -185,6 +185,7 @@ body, table, div, p {font-family:'Jeju GT';}
 #detail img{
     margin-top: 100px;
     width: 100%;
+    position: relative;
 }
 
 #list{

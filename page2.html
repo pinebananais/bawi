@@ -54,7 +54,7 @@
                 var img = document.createElement('img');
                 var leftval = 300;
                 var topval = 250;
-                img.src = "/image/map/" + json1[i] + ".png";
+                img.src = "/image/map/small/" + json1[i] + ".png";
                 console.log("left:"+(json2[i][0]*1 - leftval)+"px;top:"+json2[i][1]+"px;");
                 img.style = "left:"+(json2[i][0]*1 - leftval)+"px;top:"+(json2[i][1]*1 - topval)+"px;";
                 document.getElementById("imgbox").appendChild(img);
@@ -63,8 +63,14 @@
         
         function put_detail(){
             var img = document.createElement('img');
-            img.src = "/image/map/" + json1[img_num] + ".png";
+            img.src = "/image/map/big/" + json1[img_num] + "_big.png";
             document.getElementById("detail").appendChild(img);
+            $.getJSON("json/page2/"+json1[img_num]+".json", function(json) {
+                var img2 = document.createElement('img');
+                img2.src = "/image/pin.png";
+                img2.style = "left:"+(json[0].location[0]*1)+"px;top:"+(json[0].location[1]*1)+"px;position:absolute;";
+                document.getElementById("imgbox").appendChild(img2);
+            });
         }
         
         
