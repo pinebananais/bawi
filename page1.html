@@ -57,7 +57,7 @@
                    return results[1] || 0;
                 }
             }
-            pagenum = $.urlParam('page');
+            if($.urlParam('page')) pagenum = $.urlParam('page');
             $.getJSON("json/page1/"+pagenum+".json", function(json) {
                 console.log(json); // access the response object
                 $('.title').text(json.title);
