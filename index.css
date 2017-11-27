@@ -2,6 +2,7 @@
 @font-face{font-family:'Jeju GT'; src:url('/font/JejuGothic.ttf')}
  
 body, table, div, p {font-family:'Jeju GT';}
+span {font-family: 'Gulim';}
 
 body{
     margin: 0 0 0 0;
@@ -166,6 +167,7 @@ body{
     font-size: 40px;
 }
 .subtitle{
+    font-family: 'Jeju GT';
     margin-left: 50px;
     font-size: 36px;
 }
