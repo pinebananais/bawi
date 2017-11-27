@@ -86,6 +86,7 @@
                     img2.style = "position:absolute;left:"+(json[i].location[0]*1)+"px;top:"+(json[i].location[1]*1+200)+"px;";
                     img2.addEventListener('mouseover',hover_event);
                     img2.addEventListener('mouseout',unhover_event);
+                    img2.addEventListener('click',click_event);
                     img2.id = "pin"+i;
                     document.getElementById("detail").appendChild(img2);
                     add_row(json, i);
@@ -101,24 +102,33 @@
             var cell3 = row.insertCell(2);
             cell1.innerHTML = obj[i].name;
             cell2.innerHTML = obj[i].address;
-            cell2.innerHTML = obj[i].address;
+            if(i == pin_num) console.log(row.style.backgroundColor="#5a8e79");
+            else row.style.backgroundColor="#f0f5f3"
         }
         
         function hover_event(){
             var idx = $(this).attr('id').substr(3,1)*1;
             if(idx == pin_num) return;
-            console.log($(this).attr('src'));
+            console.log(idx);
             $(this).attr('src',"/image/map/pin_hover.png");
+            console.log(document.getElementById('bawi').childNodes[1]);
+            document.getElementById('bawi').getElementsByTagName('tr')[idx+1].style.backgroundColor="#c1e2d4";
         }
         function unhover_event(){
             for(var i = 0; i < pin_len; i++){
                 if(i == pin_num){
                     $("#pin"+i).attr('src', "/image/map/pin_select.png");
+                    document.getElementById('bawi').getElementsByTagName('tr')[i+1].style.backgroundColor="#5a8e79";
                 }
                 else{
                     $("#pin"+i).attr('src', "/image/map/pin.png");
+                    document.getElementById('bawi').getElementsByTagName('tr')[i+1].style.backgroundColor="#f0f5f3";
                 }
             }
+        }
+        function click_event(){
+            pin_num = $(this).attr('id').substr(3,1)*1;
+            unhover_event();
         }
     </script>
 </html>
