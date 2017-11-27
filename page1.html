@@ -11,10 +11,10 @@
                 <div class="banner">우암 송시열</div>
                 <nav id = "topMenu">
                     <ul>
-                        <li><a href="#">대문</a></li>
-                        <li><a href="#">우암 송시열</a></li>
-                        <li><a href="#">우암의 바위글씨</a></li>
-                        <li><a href="#">연락처</a></li>
+                        <li><a href="/index.html">대문</a></li>
+                        <li><a href="/page1.html?page=1">우암 송시열</a></li>
+                        <li><a href="/page2.html">우암의 바위글씨</a></li>
+                        <li style="border-right: black 1px solid;"><a href="#">연락처</a></li>
                     </ul>
                 </nav>
             </header>
@@ -29,9 +29,8 @@
                 </ul>
             </div>
             <div class="contents">
-                <div class="title"></div>
-                <hr>
-                <p class="article"></p>
+                <div class="title" style="margin-left: 10px;"></div>
+                <hr style="margin-bottom: 30px;margin-top:20px;">
             </div>
         </div>
         <footer id = "bottom">
@@ -40,24 +39,31 @@
         </footer>
         <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js"></script>
         <script type="text/javascript">
+            pagenum = 1;
             //Idle process
             $('.contents').css('height', 'auto');
-            if($('.contents').height() < 700){
-                $('.contents').css('height', '700');
-            }
             $('#side').css('left', (($(window).width()-$('.contents').innerWidth())/2) - $('#side').width());
             //end idle
             $(window).resize(function(){
                 $('.contents').css('height', 'auto');
-                if($('.contents').height() < 700){
-                    $('.contents').css('height', '700');
-                }
                 $('#side').css('left', (($(window).width()-$('.contents').innerWidth())/2) - $('#side').width());
             })
-            $.getJSON("json/page1/1.json", function(json) {
+            $.urlParam = function(name){
+                var results = new RegExp('[\?&]' + name + '=([^&#]*)').exec(window.location.href);
+                if (results==null){
+                   return null;
+                }
+                else{
+                   return results[1] || 0;
+                }
+            }
+            pagenum = $.urlParam('page');
+            $.getJSON("json/page1/"+pagenum+".json", function(json) {
                 console.log(json); // access the response object
                 $('.title').text(json.title);
-                $('.article').text(json.article);
+                for(var i = 0; i < json.article.length; i++){
+                    $('.contents').append("<span class='subtitle'>"+(i+1)+"."+json.article[i][0]+"</span>"+"<p class='article'>"+json.article[i][1]+"</p>");
+                }
             });
             $('#side li:not(:first-child)').hover(
                 function(){
@@ -69,6 +75,8 @@
                     $(this).css('color', '#f0f5f3');
                 }
             );
+            
+            
         </script>
 	</body>
 </html>

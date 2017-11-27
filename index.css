@@ -3,6 +3,12 @@
  
 body, table, div, p {font-family:'Jeju GT';}
 
+body{
+    margin: 0 0 0 0;
+    padding: 0 0 0 0;
+    overflow-x: hidden;
+}
+
 .banner{
     margin: 0 0 0 0;
     padding: 0 0 0 0;
@@ -159,10 +165,22 @@ body, table, div, p {font-family:'Jeju GT';}
 .title{
     font-size: 40px;
 }
-
+.subtitle{
+    margin-left: 50px;
+    font-size: 36px;
+}
 .article{
+    margin-left: 70px;
     font-size: 24px;
     line-height: 1.5;
+    overflow: hidden;
+    height: auto;
+    text-align: justify;
+}
+
+.article img{
+    margin-right: 20px;
+    margin-bottom: 20px;
 }
 
 /* page 2 */
@@ -178,16 +196,36 @@ body, table, div, p {font-family:'Jeju GT';}
 }
 
 #detail{
+    position: relative;
     float: right;
     width: 50%;
 }
 
-#detail img{
+#detail img:first-child{
     margin-top: 100px;
     width: 100%;
-    position: relative;
 }
 
 #list{
     float: none;
+}
+
+#bawi{
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+}
+#bawi th,td,tr{
+    margin: 0 0 0 0;
+    border: 0px;
+    padding: 0 20px 0 20px;
+}
+#bawi th{
+    background-color: #254438;
+    color: white;
+    height: 40px;
+}
+#bawi td,tr{
+    background-color: #f0f5f3;
+    height: 30px;
 }

@@ -1,4 +1,4 @@
 [
-    {"location":["10","10"],"name":"sample"},
-    {"location":["20","50"],"name":"sample"},
+    {"location":["10","10"],"name":"sample","address":"sammplee"},
+    {"location":["20","50"],"name":"sample","address":"sammplee"}
 ]
