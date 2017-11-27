@@ -169,11 +169,11 @@ body{
 .subtitle{
     font-family: 'Jeju GT';
     margin-left: 50px;
-    font-size: 24px;
+    font-size: 30px;
 }
 .article{
     margin-left: 70px;
-    font-size: 20px;
+    font-size: 19px;
     line-height: 1.8;
     overflow: hidden;
     height: auto;
