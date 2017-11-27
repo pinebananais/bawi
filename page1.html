@@ -42,11 +42,11 @@
             pagenum = 1;
             //Idle process
             $('.contents').css('height', 'auto');
-            $('#side').css('left', (($(window).width()-$('.contents').innerWidth())/2) - $('#side').width());
+            $('#side').css('left', (($(window).width()-$('.contents').innerWidth())/2) - $('#side').innerWidth()-8);
             //end idle
             $(window).resize(function(){
                 $('.contents').css('height', 'auto');
-                $('#side').css('left', (($(window).width()-$('.contents').innerWidth())/2) - $('#side').width());
+                $('#side').css('left', (($(window).width()-$('.contents').innerWidth())/2) - $('#side').innerWidth()-8);
             })
             $.urlParam = function(name){
                 var results = new RegExp('[\?&]' + name + '=([^&#]*)').exec(window.location.href);
@@ -58,11 +58,13 @@
                 }
             }
             if($.urlParam('page')) pagenum = $.urlParam('page');
+            $('#side li:nth-child('+(pagenum*1+1)+')').css('background-color', '#f0f5f3');
+            $('#side li:nth-child('+(pagenum*1+1)+')').css('color', '#254438');
             $.getJSON("json/page1/"+pagenum+".json", function(json) {
                 console.log(json); // access the response object
                 $('.title').text(json.title);
                 for(var i = 0; i < json.article.length; i++){
-                    $('.contents').append("<span class='subtitle'>"+(i+1)+"."+json.article[i][0]+"</span>"+"<p class='article'>"+json.article[i][1]+"</p>");
+                    $('.contents').append("<span class='subtitle'>"+(i+1)+". &nbsp;"+json.article[i][0]+"</span>"+"<p class='article'>"+json.article[i][1]+"</p>");
                 }
             });
             $('#side li:not(:first-child)').hover(
@@ -73,6 +75,8 @@
                 , function(){
                     $(this).css('background-color', '#5a8e79');
                     $(this).css('color', '#f0f5f3');
+                    $('#side li:nth-child('+(pagenum*1+1)+')').css('background-color', '#f0f5f3');
+                    $('#side li:nth-child('+(pagenum*1+1)+')').css('color', '#254438');
                 }
             );
             $('#side li:not(:first-child)').click(
