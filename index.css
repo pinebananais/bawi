@@ -167,7 +167,9 @@ body{
     font-size: 36px;
 }
 .subtitle{
+    display: inline-block;
     font-family: 'Jeju GT';
+    margin-top: 50px;
     margin-left: 50px;
     font-size: 30px;
 }

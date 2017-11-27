@@ -30,7 +30,7 @@
             </div>
             <div class="contents">
                 <div class="title" style="margin-left: 10px;"></div>
-                <hr style="margin-bottom: 30px;margin-top:40px;">
+                <hr style="margin-bottom: 30px;margin-top:25px;">
             </div>
         </div>
         <footer id = "bottom">
@@ -73,6 +73,11 @@
                 , function(){
                     $(this).css('background-color', '#5a8e79');
                     $(this).css('color', '#f0f5f3');
+                }
+            );
+            $('#side li:not(:first-child)').click(
+                function(){
+                    location.href = "/page1.html?page="+$('#side li').index(this);
                 }
             );
             
