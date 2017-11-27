@@ -44,6 +44,7 @@
         var pin_num = 0;
         var pin_len = 0;
         
+        
         $.getJSON("json/page2/name.json", function(json) {
             console.log(json); // access the response object
             json1 = json;
@@ -56,6 +57,34 @@
                 console.log(json1);
                 put_img();
                 put_detail();
+                $.getJSON("json/page2/ccw.json", function(json) {
+                    console.log(json); // access the response object
+                    $("#imgbox").mousemove(
+                        function(e){
+                            var tmp;
+                            var rect = e.currentTarget.getBoundingClientRect();
+                            console.log((e.pageX - rect.left) + " " + (e.pageY - rect.top - $(document).scrollTop()));
+                            tmp = isIn(json,e.pageX - rect.left,e.pageY - rect.top - $(document).scrollTop());
+                            for(var i = 0; i < json1.length; i++){
+                                    if(i == tmp || i == img_num){
+                                        document.getElementById('imgbox').getElementsByTagName('img')[i].src = "/image/map/small_dark/" + json1[i] + "_dark.png";
+                                    }
+                                    else{
+                                        document.getElementById('imgbox').getElementsByTagName('img')[i].src = "/image/map/small/" + json1[i] + ".png";
+                                    }
+                            }
+                        }
+                    );
+                    $("#imgbox").click(
+                        function(e){
+                            var tmp;
+                            var rect = e.currentTarget.getBoundingClientRect();
+                            console.log((e.pageX - rect.left) + " " + (e.pageY - rect.top - $(document).scrollTop()));
+                            if((tmp = isIn(json,e.pageX - rect.left,e.pageY - rect.top - $(document).scrollTop())) != -1) img_num = tmp;
+                            put_detail();
+                        }
+                    );
+                });
             });
         }
         
@@ -72,14 +101,14 @@
         }
         
         function put_detail(){
+            $('#detail').empty();
+            $('#bawi tr:not(:first-child)').remove();
             var img = document.createElement('img');
             img.src = "/image/map/big/" + json1[img_num] + "_big.png";
             document.getElementById("detail").appendChild(img);
-            console.log("json/page2/"+json1[img_num]+".json");
             $.getJSON("json/page2/"+json1[img_num]+".json", function(json) {
                 pin_len = json.length;
                 for(var i = 0; i < json.length; i++){
-                    console.log("asdf");
                     var img2 = document.createElement('img');
                     if(i) img2.src = "/image/map/pin.png";
                     else img2.src = "/image/map/pin_select.png"
@@ -109,9 +138,7 @@
         function hover_event(){
             var idx = $(this).attr('id').substr(3,1)*1;
             if(idx == pin_num) return;
-            console.log(idx);
             $(this).attr('src',"/image/map/pin_hover.png");
-            console.log(document.getElementById('bawi').childNodes[1]);
             document.getElementById('bawi').getElementsByTagName('tr')[idx+1].style.backgroundColor="#c1e2d4";
         }
         function unhover_event(){
@@ -129,6 +156,24 @@
         function click_event(){
             pin_num = $(this).attr('id').substr(3,1)*1;
             unhover_event();
+        }
+        console.log(123);
+        function isIn(obj, xx, yy){
+            for(var i = 0; i < obj.length; i++){
+                var flag = true;
+                for(var j = 0; j < obj[i].length - 1; j++){
+                    if(CCW(obj[i][j][0],obj[i][j][1],obj[i][j+1][0],obj[i][j+1][1],xx,yy) > 0){
+                        flag = false;
+                        break;
+                    }
+                }
+                if(flag) return i;
+            }
+            return -1;
+        }
+        function CCW(x1,y1,x2,y2,x3,y3) {
+            var temp = x1*(y2-y3)+x2*(y3-y1)+x3*(y1-y2);
+            return temp;
         }
     </script>
 </html>
