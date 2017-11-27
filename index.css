@@ -175,17 +175,13 @@ body{
 }
 .article{
     margin-left: 70px;
+    margin-right: 70px;
     font-size: 19px;
     line-height: 1.8;
     overflow: hidden;
     height: auto;
     text-align: justify;
     text-indent: 30px
-}
-
-.article img{
-    margin-right: 20px;
-    margin-bottom: 20px;
 }
 
 /* page 2 */
