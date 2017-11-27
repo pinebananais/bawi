@@ -42,11 +42,11 @@
             pagenum = 1;
             //Idle process
             $('.contents').css('height', 'auto');
-            $('#side').css('left', (($(window).width()-$('.contents').innerWidth())/2) - $('#side').innerWidth()-8);
+            $('#side').css('left', (($(window).width()-$('.contents').innerWidth())/2) - $('#side').innerWidth()-9);
             //end idle
             $(window).resize(function(){
                 $('.contents').css('height', 'auto');
-                $('#side').css('left', (($(window).width()-$('.contents').innerWidth())/2) - $('#side').innerWidth()-8);
+                $('#side').css('left', (($(window).width()-$('.contents').innerWidth())/2) - $('#side').innerWidth()-9);
             })
             $.urlParam = function(name){
                 var results = new RegExp('[\?&]' + name + '=([^&#]*)').exec(window.location.href);

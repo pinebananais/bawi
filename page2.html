@@ -137,8 +137,12 @@
             var cell3 = row.insertCell(2);
             cell1.innerHTML = obj[i].name;
             cell2.innerHTML = obj[i].address;
+            cell3.innerHTML = "Click";
             if(i == pin_num) console.log(row.style.backgroundColor="#5a8e79");
             else row.style.backgroundColor="#f0f5f3"
+            row.addEventListener('click', function(){
+                 location.href = "/page3.html?name="+obj[i].src;
+            });
         }
         
         function hover_event(){

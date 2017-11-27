@@ -57,11 +57,11 @@ body{
     width: 215px;
     vertical-align: middle;
     text-align: center;
+    color: black;
 }
 
 #main{
     height: auto;
-    border: red solid 1px;
     position: relative;
 }
 
@@ -228,4 +228,21 @@ body{
 }
 #bawi td,tr{
     height: 30px;
+}
+
+/* page 3 */
+
+.bawititle{
+    text-align: center;
+    font-size: 36px;
+    margin-top: 50px;
+    margin-bottom: 50px;
+}
+
+.bawiimg{
+    display: block;
+    text-align:center;
+    width: 80%;
+    margin-right: auto;
+    margin-left: auto;
 }
