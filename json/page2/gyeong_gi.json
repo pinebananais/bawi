@@ -1,4 +1,8 @@
 [
-    {"location":["10","10"],"name":"sample","address":"sammplee"},
-    {"location":["20","50"],"name":"sample","address":"sammplee"}
+    {"location":["203","80"],"name":"도봉동문","address":"서울 도봉구 도봉동","src":"do_bong_dong_moon"},
+    {"location":["183","80"],"name":"제월광풍","address":"서울 도봉구 도봉동","src":"je_wal_gwang_poong"},
+    {"location":["190","100"],"name":"증주벽립","address":"서울 종로구 명륜1가","src":"jung_ju_byuck_rip"},
+    {"location":["210","100"],"name":"금고일반","address":"서울 종로구 혜화로 63","src":"gum_go_il_ban"},
+    {"location":["260","125"],"name":"취석","address":"경기 남양주시 수석동","src":"chi_suck"},
+    {"location":["302","63"],"name":"조종암","address":"경기 가평군 조종면","src":"il_mo_do_won"}
 ]

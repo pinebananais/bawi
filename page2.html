@@ -63,7 +63,6 @@
                         function(e){
                             var tmp;
                             var rect = e.currentTarget.getBoundingClientRect();
-                            console.log((e.pageX - rect.left) + " " + (e.pageY - rect.top - $(document).scrollTop()));
                             tmp = isIn(json,e.pageX - rect.left,e.pageY - rect.top - $(document).scrollTop());
                             for(var i = 0; i < json1.length; i++){
                                     if(i == tmp || i == img_num){
@@ -79,7 +78,6 @@
                         function(e){
                             var tmp;
                             var rect = e.currentTarget.getBoundingClientRect();
-                            console.log((e.pageX - rect.left) + " " + (e.pageY - rect.top - $(document).scrollTop()));
                             if((tmp = isIn(json,e.pageX - rect.left,e.pageY - rect.top - $(document).scrollTop())) != -1) img_num = tmp;
                             put_detail();
                         }
@@ -95,6 +93,7 @@
                 var leftval = 300;
                 var topval = 250;
                 img.src = "/image/map/small/" + json1[i] + ".png";
+                if(i == img_num) img.src = "/image/map/small_dark/" + json1[i] + "_dark.png"
                 img.style = "left:"+(json2[i][0]*1 - leftval)+"px;top:"+(json2[i][1]*1 - topval)+"px;";
                 document.getElementById("imgbox").appendChild(img);
             }
@@ -120,6 +119,13 @@
                     document.getElementById("detail").appendChild(img2);
                     add_row(json, i);
                 }
+                $("#detail").mousemove(
+                    function(e){
+                        var tmp;
+                        var rect = e.currentTarget.getBoundingClientRect();
+                        console.log((e.pageX - rect.left) + " " + (e.pageY - rect.top - $(document).scrollTop()));
+                    }
+                );
             });
         }
         
